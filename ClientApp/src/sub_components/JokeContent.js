@@ -1,9 +1,8 @@
 ﻿import { withAuth } from '@okta/okta-react';
 import React, { Component, useState } from 'react';
-//import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import '../css/JokeContent.css';
 import { Fade, Container, Row, Col, Button } from 'reactstrap';
 import RateJokeButton from './RateJokeButton';
+import '../css/JokeContent.css';
 
 //import authService  from './api-authorization/AuthorizeService';
 

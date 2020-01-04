@@ -1,5 +1,7 @@
 ﻿import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import { withAuth } from '@okta/okta-react';
+//import '../css/LoginButton.css';
 
 export default withAuth(class LoginButton extends Component {
     constructor(props) {
@@ -35,7 +37,7 @@ export default withAuth(class LoginButton extends Component {
     render() {
         if (this.state.authenticated === null) return null;
         return this.state.authenticated ?
-            <button onClick={this.logout}>Logout</button> :
-            <button onClick={this.login}>Login</button>;
+            <Button outline color="danger" onClick={this.logout}>Logout</Button> :
+            <Button outline color="primary" onClick={this.login}>Login</Button>;
     }
 });

@@ -6,7 +6,7 @@ import face_neutral_image from '../images/face_neutral.png';
 import face_smile_image from '../images/face_smile.png';
 import face_funny_image from '../images/face_funny.png';
 
-export default withAuth(class LoginButton extends Component {
+export default withAuth(class RateJokeButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
