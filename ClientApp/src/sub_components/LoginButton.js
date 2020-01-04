@@ -1,7 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
 
-
 export default withAuth(class LoginButton extends Component {
     constructor(props) {
         super(props);
