@@ -5,8 +5,10 @@
 }
 
 html {
-  font-size: 14px;
+    font-size: 16px;
+    /*background: url('../images/Background.jpg') no-repeat center center fixed;*/  
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -16,3 +18,11 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush&display=swap');
