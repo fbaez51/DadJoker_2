@@ -6,17 +6,24 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Joke } from './components/Joke';
+import Login from './components/Login';
+import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
+import Protected from './components/Protected';
 
 import './custom.css'
 
-import { Security, ImplicitCallback } from '@okta/okta-react';
 
-const config = {
-    issuer: 'https://dev-623447.okta.com/oauth2/default',
-    redirectUri: window.location.origin + '/implicit/callback',
-    clientId: '0oa2deq7veEwu5oNr357',
-    pkce: true
+function onAuthRequired({ history }) {
+    history.push('/login');
 }
+
+//const config = {
+//    issuer: 'https://dev-623447.okta.com/oauth2/default',
+//    redirectUri: window.location.origin + '/implicit/callback',
+//    clientId: '0oa2deq7veEwu5oNr357',
+//    onAuthRequired: { onAuthRequired },
+//    pkce: true
+//}
 
 export default class App extends Component {
     static displayName = App.name;
@@ -24,9 +31,15 @@ export default class App extends Component {
     render() {
         return (
             <Router>
-                <Security {...config}>
+                <Security issuer='https://dev-623447.okta.com/oauth2/default'
+                    clientId='0oa2deq7veEwu5oNr357'
+                    redirectUri={window.location.origin + '/implicit/callback'}
+                    onAuthRequired={onAuthRequired}
+                    pkce={true} >
                     <Layout>
-                        <Route exact path='/' component={Joke} />
+                        <Route path='/' exact={true} component={Joke} />
+                        <SecureRoute path='/protected' component={Protected} />
+                        <Route path='/login' render={() => <Login baseUrl='https://dev-623447.okta.com' />} />
                         <Route path='/implicit/callback' component={ImplicitCallback} />
                     </Layout>
                 </Security >

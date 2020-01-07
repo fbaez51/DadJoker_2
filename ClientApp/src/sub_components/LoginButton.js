@@ -1,7 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
-//import '../css/LoginButton.css';
+import '../css/LoginButton.css';
 
 export default withAuth(class LoginButton extends Component {
     constructor(props) {
@@ -20,7 +21,11 @@ export default withAuth(class LoginButton extends Component {
         }
     }
 
-    componentDidUpdate() {
+    async componentDidMount() {
+        this.checkAuthentication();
+    }
+
+    async componentDidUpdate() {
         this.checkAuthentication();
     }
 
@@ -36,8 +41,24 @@ export default withAuth(class LoginButton extends Component {
 
     render() {
         if (this.state.authenticated === null) return null;
-        return this.state.authenticated ?
-            <Button outline color="danger" onClick={this.logout}>Logout</Button> :
-            <Button outline color="primary" onClick={this.login}>Login</Button>;
+
+
+        const button = this.state.authenticated ?
+            <button onClick={this.logout}>Logout</button> :
+            <button onClick={this.login}>Login</button>;
+
+        return (
+            <div>
+                <Link to='/'>Home</Link><br />
+                <Link to='/protected'>Protected</Link><br />
+                {button}
+            </div>
+        );
+
+
+
+        //return this.state.authenticated ?
+        //    <Button outline color="danger" onClick={this.logout}>Logout</Button> :
+        //    <Button outline color="primary" onClick={this.login}>Login</Button>;
     }
 });
