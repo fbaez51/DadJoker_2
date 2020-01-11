@@ -4,8 +4,6 @@ import { Fade, Container, Row, Col, Button } from 'reactstrap';
 import RateJokeButton from './RateJokeButton';
 import '../css/JokeContent.css';
 
-//import authService  from './api-authorization/AuthorizeService';
-
 async function checkAuthentication() {
     const authenticated = await this.props.auth.isAuthenticated();
     if (authenticated && !this.state.userinfo) {
@@ -27,11 +25,8 @@ export default withAuth(class JokeContent extends Component {
             , fadeInQuestion: true
             , fadeInAnswer: true
             , fadeInRating: true
-           // , isAuthenticated: false
-            //, userName: null
-            //, userinfo: null
         };
-        //TEsting
+
         this.checkAuthentication = checkAuthentication.bind(this);
 
         this.setInitialJoke = this.setInitialJoke.bind(this);
@@ -46,23 +41,12 @@ export default withAuth(class JokeContent extends Component {
         this.NextJoke = this.NextJoke.bind(this);
 
         this.getCurrentJokeID = this.getCurrentJokeID.bind(this);
-        //this.TestJoke = this.TestJoke.bind(this);
-
-        //this.AuthorizedRatingRendering = this.AuthorizedRatingRendering.bind(this);
-
-        //this.VoteNeutral = this.VoteNeutral.bind(this);
-        //this.VoteSmile = this.VoteSmile.bind(this);
-        //this.VoteFunny = this.VoteFunny.bind(this);
-
-        //this.JokeRatingUpsert = this.JokeRatingUpsert.bind(this);
 
         this.NoMoreJokesRender = this.NoMoreJokesRender.bind(this);
     }
 
     componentDidMount() {
         this.setInitialJoke();
-        //this.populateAuthenticationState();
-
         this.checkAuthentication();
     }
 
@@ -80,14 +64,6 @@ export default withAuth(class JokeContent extends Component {
     getCurrentJokeID() {
         return this.state.jokesID;
     }
-
-    //async populateAuthenticationState() {
-    //    //   const [isAuthenticated, user] = await Promise.all([authService.isAuthenticated(), authService.getUser()])
-    //    //this.setState({
-    //    //    isAuthenticated,
-    //    //    userName: user && user.name
-    //    //});
-    //}
 
     toggleFadeQuestion() {
         this.setState({

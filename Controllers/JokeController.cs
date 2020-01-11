@@ -17,5 +17,11 @@ namespace DadJoker.Controllers
         {
             return Joke.FetchAllJokesRandomizedFromDB();
         }
+
+        [HttpGet("[action]")]
+        public IEnumerable<JokeRatingTop> FetchTopJokes()
+        {
+            return JokeRatingTop.JokeRating_Top();
+        }
     }
 }

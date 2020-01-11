@@ -44,18 +44,17 @@ export default withAuth(class LoginButton extends Component {
 
 
         const button = this.state.authenticated ?
-            <button onClick={this.logout}>Logout</button> :
-            <button onClick={this.login}>Login</button>;
+            <Button outline color="danger" onClick={this.logout}>Logout</Button> :
+            <Button outline color="primary" onClick={this.login}>Login</Button>;
 
         return (
             <div>
-                <Link to='/'>Home</Link><br />
-                <Link to='/protected'>Protected</Link><br />
                 {button}
             </div>
         );
 
-
+                        //<Link to='/'>Home</Link><br />
+                //<Link to='/protected'>Protected</Link><br />
 
         //return this.state.authenticated ?
         //    <Button outline color="danger" onClick={this.logout}>Logout</Button> :

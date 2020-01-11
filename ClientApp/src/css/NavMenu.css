@@ -26,3 +26,8 @@ img {
 }
 
 @import url('https://fonts.googleapis.com/css?family=Alex+Brush&display=swap');
+
+img.LogoPic {
+    width: 30px;
+    margin-left: 10px;
+}

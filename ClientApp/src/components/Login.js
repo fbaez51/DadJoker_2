@@ -14,6 +14,7 @@ export default withAuth(class Login extends Component {
             authenticated: null
         };
         this.checkAuthentication();
+        this.loadScripts = this.loadScripts.bind(this);
     }
 
     async checkAuthentication() {
@@ -23,8 +24,16 @@ export default withAuth(class Login extends Component {
         }
     }
 
+    loadScripts() {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://apis.google.com/js/platform.js";
+        document.head.appendChild(script);
+    }
+
     componentDidUpdate() {
         this.checkAuthentication();
+        this.loadScripts();
     }
 
     onSuccess(res) {

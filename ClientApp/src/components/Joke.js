@@ -33,7 +33,7 @@ export class Joke extends Component {
 
     render() {
         let content = this.state.loading
-            ? <p><em>Loading Jokes... :)</em></p>
+            ? <p><em></em></p>
             : this.RenderJoke();
 
         return (

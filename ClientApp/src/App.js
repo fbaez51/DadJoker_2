@@ -6,11 +6,12 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { Joke } from './components/Joke';
+import { TopJokes } from './components/TopJokes';
 import Login from './components/Login';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Protected from './components/Protected';
 
-import './custom.css'
+import './css/App.css'
 
 
 function onAuthRequired({ history }) {
@@ -38,7 +39,7 @@ export default class App extends Component {
                     pkce={true} >
                     <Layout>
                         <Route path='/' exact={true} component={Joke} />
-                        <SecureRoute path='/protected' component={Protected} />
+                        <Route path='/topjokes' exact={true} component={TopJokes} />
                         <Route path='/login' render={() => <Login baseUrl='https://dev-623447.okta.com' />} />
                         <Route path='/implicit/callback' component={ImplicitCallback} />
                     </Layout>
@@ -47,3 +48,5 @@ export default class App extends Component {
         );
     }
 }
+
+       //<SecureRoute path='/protected' component={Protected} />
