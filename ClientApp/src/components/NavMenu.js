@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Button } from 'reactstrap';
+import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import LoginButton from '../sub_components/LoginButton';
 import DadJokerLogo from '../images/DadJoker_Logo_400x400_transparent.png'
@@ -46,15 +46,3 @@ export class NavMenu extends Component {
         );
     }
 }
-//  <Button outline color="primary" onClick={this.login}>Top Jokes</Button>
-//<font face="Alex Brush">Dad Joker</font>
-
-//<NavItem>
-//    <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-//</NavItem>
-//    <NavItem>
-//        <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-//    </NavItem>
-//    <NavItem>
-//        <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-//    </NavItem>

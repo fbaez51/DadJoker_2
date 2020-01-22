@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
 import { Joke } from './components/Joke';
 import { TopJokes } from './components/TopJokes';
 import Login from './components/Login';
-import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
-import Protected from './components/Protected';
+import { Security, ImplicitCallback } from '@okta/okta-react';
 
 import './css/App.css'
 
@@ -17,14 +13,6 @@ import './css/App.css'
 function onAuthRequired({ history }) {
     history.push('/login');
 }
-
-//const config = {
-//    issuer: 'https://dev-623447.okta.com/oauth2/default',
-//    redirectUri: window.location.origin + '/implicit/callback',
-//    clientId: '0oa2deq7veEwu5oNr357',
-//    onAuthRequired: { onAuthRequired },
-//    pkce: true
-//}
 
 export default class App extends Component {
     static displayName = App.name;

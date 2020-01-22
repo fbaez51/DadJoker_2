@@ -52,12 +52,5 @@ export default withAuth(class LoginButton extends Component {
                 {button}
             </div>
         );
-
-                        //<Link to='/'>Home</Link><br />
-                //<Link to='/protected'>Protected</Link><br />
-
-        //return this.state.authenticated ?
-        //    <Button outline color="danger" onClick={this.logout}>Logout</Button> :
-        //    <Button outline color="primary" onClick={this.login}>Login</Button>;
     }
 });
